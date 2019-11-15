@@ -7,6 +7,12 @@
   * The consume function should return the invocation of cb, passing a and b into cb as arguments
 */
 
+function consume(a, b, cb){
+  return cb(a,b);
+}
+
+
+
 
 /* Step 2: Create several functions to callback with consume();
   * Create a function named add that returns the sum of two numbers
@@ -14,6 +20,17 @@
   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 */
 
+function add(a,b){
+  return a + b;
+}
+
+function multiply(a,b){
+  return a * b;
+}
+
+function greeting(firstName, lastName){
+  return `Hello ${firstName} ${lastName}, nice to meet you!`;
+}
 
 /* Step 3: Check your work by un-commenting the following calls to consume(): */
 // console.log(consume(2, 2, add)); // 4
@@ -25,17 +42,19 @@
 
 // Explain in your own words why nestedfunction can access the variable internal.
 
-// Explanation: 
+// Explanation: If the nested function does not have the variable in it's scope it looks outside to its parents and finds the variable there. But the parent can not access the varibles inside it's childs functions.
 
 
 const external = "I'm outside the function";
 
 function myFunction() {
   console.log(external);
+
   const internal = "Hello! I'm inside myFunction!";
 
   function nestedFunction() {
     console.log(internal);
+
   };
   nestedFunction();
 }
